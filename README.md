@@ -15,3 +15,20 @@ const asciiString = ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXY
 | Seed      | alters the hash similar to the original function       |
 | 64-bit Output   | Changes the hash format. Uncheck to get the result of the initial example function. With the option checked, the function uses a alternative hash format from the comments  |
 
+## Tests
+
+The tests included in the template check the sample results from the answer on Stack Overflow. Quote: 
+```
+"501c2ba782c97901" = cyrb53("a")
+"459eda5bc254d2bf" = cyrb53("b")
+"fbce64cc3b748385" = cyrb53("revenge")
+"fb1d85148d13f93a" = cyrb53("revenue")
+```
+
+You can optionally supply a seed (unsigned integer, 32-bit max) for alternate streams of the same input:
+
+```
+"76fee5e6598ccd5c" = cyrb53("revenue", 1)
+"1f672e2831253862" = cyrb53("revenue", 2)
+"2b10de31708e6ab7" = cyrb53("revenue", 3)
+```
