@@ -1,4 +1,4 @@
-﻿___TERMS_OF_SERVICE___
+___TERMS_OF_SERVICE___
 
 By creating or modifying this file you agree to Google Tag Manager's Community
 Template Gallery Developer Terms of Service available at
@@ -113,11 +113,31 @@ return cyrb53(data.dataStr, data.seed, data.output64);
 
 ___TESTS___
 
-scenarios: []
+scenarios:
+- name: check example values from Stack Overflow answer
+  code: |
+    let variableResult = runCode({dataStr: 'a', seed: 0, output64: true});
+    assertThat(variableResult).isEqualTo('501c2ba782c97901');
+
+    variableResult = runCode({dataStr: 'b', seed: 0, output64: true});
+    assertThat(variableResult).isEqualTo('459eda5bc254d2bf');
+
+    variableResult = runCode({dataStr: 'revenge', seed: 0, output64: true});
+    assertThat(variableResult).isEqualTo('fbce64cc3b748385');
+
+    variableResult = runCode({dataStr: 'revenue', seed: 0, output64: true});
+    assertThat(variableResult).isEqualTo('fb1d85148d13f93a');
+
+    variableResult = runCode({dataStr: 'revenue', seed: 1, output64: true});
+    assertThat(variableResult).isEqualTo('76fee5e6598ccd5c');
+
+    variableResult = runCode({dataStr: 'revenue', seed: 2, output64: true});
+    assertThat(variableResult).isEqualTo('1f672e2831253862');
+
+    variableResult = runCode({dataStr: 'revenue', seed: 3, output64: true});
+    assertThat(variableResult).isEqualTo('2b10de31708e6ab7');
 
 
 ___NOTES___
 
-Created on 30.12.2021, 12:02:14
-
-
+Created on 30.12.2021, 12:43:38
