@@ -1,5 +1,12 @@
-# cyrb53-hasher
-Custom Variable Template for Server-Side Google Tag Manager to hash any string using cyrb53. This variable needs a string as input and calculates a hash based on the function on Stack Overflow described at https://stackoverflow.com/a/52171480. 
+# Cyrb53 Hasher (ssGTM)
+
+**Custom Variable Template for Server-Side Google Tag Manager**
+
+Hash any string using cyrb53. This variable needs a string as input and calculates a hash based on the function on Stack Overflow described at https://stackoverflow.com/a/52171480. 
+
+[![Template Status](https://img.shields.io/badge/Community%20Template%20Gallery%20Status-published-green)](https://tagmanager.google.com/gallery/#/owners/mbaersch/templates/cyrb53-hasher) ![Repo Size](https://img.shields.io/github/repo-size/mbaersch/cyrb53-hasher) ![License](https://img.shields.io/github/license/mbaersch/cyrb53-hasher)
+
+---
 
 **Note**: As the GTM JS Sandbox does not support all methods that are uses in the orignal function, the template uses some polyfills and has to make compromises regarding the supported set of characters. That means, that all parts consisting of unknown characters besides the standard ASCII set will lead to the same result. If a string can not avoid including characters that are not part of the following string, the distribution will suffer - and lead to a result that does not match the outcome of the original function. If you need to compare hashes on the receiving side, an adjusted cyrb53 version similar to this variable implementation must be used. 
 
