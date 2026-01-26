@@ -83,7 +83,10 @@ function padStart(str,targetLength,padString) {
   } else {
     targetLength = targetLength-str.length;
     if (targetLength > padString.length) {
-      padString += padString.repeat(targetLength/padString.length); 
+      const count = targetLength / padString.length;
+      for (let i = 0; i < count; i++) {
+        padString += padString;
+      }
     }
     return padString.slice(0,targetLength) + str;
   }
