@@ -15,7 +15,9 @@ ___INFO___
   "securityGroups": [],
   "displayName": "cyrb53 Hasher",
   "description": "hash strings using a cyrb53 implementation (standard ascii characters only)",
-  "categories": ["UTILITY"],
+  "categories": [
+    "UTILITY"
+  ],
   "containerContexts": [
     "SERVER"
   ]
@@ -83,7 +85,10 @@ function padStart(str,targetLength,padString) {
   } else {
     targetLength = targetLength-str.length;
     if (targetLength > padString.length) {
-      padString += padString.repeat(targetLength/padString.length); 
+      const count = targetLength / padString.length;
+      for (let i = 0; i < count; i++) {
+        padString += padString;
+      }
     }
     return padString.slice(0,targetLength) + str;
   }
@@ -115,29 +120,29 @@ ___TESTS___
 
 scenarios:
 - name: check example values from Stack Overflow answer
-  code: |
+  code: |-
     let variableResult = runCode({dataStr: 'a', seed: 0, output64: true});
     assertThat(variableResult).isEqualTo('501c2ba782c97901');
-
     variableResult = runCode({dataStr: 'b', seed: 0, output64: true});
     assertThat(variableResult).isEqualTo('459eda5bc254d2bf');
-
     variableResult = runCode({dataStr: 'revenge', seed: 0, output64: true});
     assertThat(variableResult).isEqualTo('fbce64cc3b748385');
-
     variableResult = runCode({dataStr: 'revenue', seed: 0, output64: true});
     assertThat(variableResult).isEqualTo('fb1d85148d13f93a');
-
     variableResult = runCode({dataStr: 'revenue', seed: 1, output64: true});
     assertThat(variableResult).isEqualTo('76fee5e6598ccd5c');
-
     variableResult = runCode({dataStr: 'revenue', seed: 2, output64: true});
     assertThat(variableResult).isEqualTo('1f672e2831253862');
-
     variableResult = runCode({dataStr: 'revenue', seed: 3, output64: true});
     assertThat(variableResult).isEqualTo('2b10de31708e6ab7');
+    variableResult = runCode({dataStr: 'ESCP Business School', seed: 0, output64: false});
+    assertThat(variableResult).isEqualTo(4069707626304993);
+    variableResult = runCode({dataStr: 'ESCP Business School', seed: 0, output64: true});
+    assertThat(variableResult).isEqualTo("000e7560a567d5e1");
 
 
 ___NOTES___
 
 Created on 30.12.2021, 12:43:38
+
+
