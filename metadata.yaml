@@ -1,4 +1,9 @@
 homepage: "https://www.markus-baersch.de"
+documentation: "https://github.com/mbaersch/cyrb53-hasher#readme"
 versions:
+  # Latest version
+  - sha: 6fcce9ed5b0cf985c74bcf3401afe0fba1487f64
+    changeNotes: fixed "undefined" result for some input values. 
+  # Older versions
   - sha: 968f6e6748c3edc990463d48112656c980e41362
     changeNotes: initial release.
